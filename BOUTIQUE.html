@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popy Tech | Boutique Digitale & Physique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --electric-blue: #0066FF;
+            --deep-black: #121212;
+            --neon-cyan: #00FFFF;
+            --neon-pink: #FF10F0;
+            --pure-white: #FFFFFF;
+            --gray-light: rgba(255, 255, 255, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--deep-black);
+            color: var(--pure-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            background: rgba(18, 18, 18, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 123, 255, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            color: var(--electric-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--neon-cyan);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--pure-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: var(--neon-cyan);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--neon-cyan);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .cart-icon {
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--neon-pink);
+            color: var(--pure-white);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--pure-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .shop-hero {
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, var(--deep-black) 100%);
+        }
+        
+        .shop-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 123, 255, 0.15) 0%, transparent 60%);
+            z-index: -1;
+        }
+        
+        .shop-hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+        
+        .shop-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--electric-blue), var(--neon-cyan));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        
+        .shop-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: var(--gray-light);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--electric-blue), var(--neon-cyan));
+            color: var(--pure-white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+        }
+        
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.1) 45%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                rgba(255, 255, 255, 0) 60%
+            );
+            transform: rotate(30deg);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover::after {
+            left: 100%;
+        }
+        
+        .hero-bg-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.2;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--electric-blue);
+            top: 20%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--neon-pink);
+            bottom: 10%;
+            right: 15%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(20px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+        
+        /* Categories Section */
+        .shop-categories {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--neon-cyan);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -10px;
+            left: 25%;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            position: relative;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 123, 255, 0.1);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+            border-color: rgba(0, 123, 255, 0.3);
+        }
+        
+        .category-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .category-image {
+            transform: scale(1.1);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .category-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .category-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .products-filter {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            color: var(--pure-white);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--electric-blue);
+            border-color: var(--electric-blue);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 123, 255, 0.1);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+            border-color: rgba(0, 123, 255, 0.3);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--neon-pink);
+            color: var(--pure-white);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-image-container {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-category {
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background: var(--electric-blue);
+            color: var(--pure-white);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+        }
+        
+        .add-to-cart:hover {
+            background: var(--neon-cyan);
+        }
+        
+        /* Digital Badge */
+        .digital-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0, 255, 255, 0.2);
+            color: var(--neon-cyan);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--neon-cyan);
+            z-index: 2;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-content h2 {
+            margin-bottom: 20px;
+            color: var(--neon-cyan);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--gray-light);
+        }
+        
+        /* Blog Section */
+        .blog-section {
+            padding: 100px 0;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 123, 255, 0.1);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+            border-color: rgba(0, 123, 255, 0.3);
+        }
+        
+        .blog-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: 20px;
+        }
+        
+        .blog-date {
+            color: var(--neon-cyan);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .blog-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .blog-excerpt {
+            color: var(--gray-light);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .read-more {
+            color: var(--electric-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 123, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--electric-blue);
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: var(--neon-cyan);
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-text a:hover {
+            color: var(--electric-blue);
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 123, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--pure-white);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--pure-white);
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, var(--electric-blue), var(--neon-cyan));
+            color: var(--pure-white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+        
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: var(--deep-black);
+            z-index: 2000;
+            transition: all 0.3s ease;
+            border-left: 1px solid rgba(0, 123, 255, 0.2);
+            overflow-y: auto;
+        }
+        
+        .cart-sidebar.active {
+            right: 0;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--pure-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .cart-items {
+            padding: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: var(--neon-cyan);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--pure-white);
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-item-quantity {
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .remove-item {
+            margin-left: auto;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .remove-item:hover {
+            color: var(--neon-pink);
+        }
+        
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--electric-blue), var(--neon-cyan));
+            color: var(--pure-white);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .checkout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 70px 0 30px;
+            color: var(--gray-light);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            color: var(--electric-blue);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: var(--neon-cyan);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--electric-blue);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            color: var(--pure-white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--electric-blue);
+        }
+        
+        .footer-newsletter p {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px 0 0 30px;
+            color: var(--pure-white);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+        }
+        
+        .newsletter-btn {
+            background: var(--electric-blue);
+            color: var(--pure-white);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background: var(--neon-cyan);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .shop-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-image, .about-content {
+                flex: none;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .shop-hero {
+                min-height: auto;
+                padding: 150px 0 100px;
+                height: auto;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .products-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .cart-sidebar {
+                width: 350px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .shop-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .categories-grid,
+            .products-grid,
+            .blog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .shop-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .shop-hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 30px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Popy<span>Tech</span></a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#products">Produits</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <a href="#" id="cartButton" class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="shop-hero">
+        <div class="container">
+            <div class="shop-hero-content">
+                <h1>Votre univers digital et physique</h1>
+                <p>Découvrez notre collection exclusive de produits digitaux et physiques conçus pour les créatifs, entrepreneurs et passionnés de tech.</p>
+                <a href="#products" class="cta-button">Explorer la boutique</a>
+            </div>
+            
+            <div class="hero-bg-elements">
+                <div class="hero-circle circle-1"></div>
+                <div class="hero-circle circle-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="products-header">
+                <h2 class="section-title">Nos Produits</h2>
+                
+                <div class="products-filter">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="digital">Digitaux</button>
+                    <button class="filter-btn" data-filter="tshirt">T-shirts</button>
+                    <button class="filter-btn" data-filter="service">Services</button>
+                    <button class="filter-btn" data-filter="pack">Packs</button>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Produit 1 - T-shirt -->
+                <div class="product-card" data-category="tshirt">
+                    <div class="product-badge">Nouveau</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="T-shirt Indépendance Digitale" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">T-shirt "Indépendance"</h3>
+                        <span class="product-category">Collection T-shirts</span>
+                        <div class="product-price">
+                            <span class="current-price">25 000 GNF</span>
+                            <span class="original-price">30 000 GNF</span>
+                        </div>
+                        <button class="add-to-cart" data-id="1" data-name="T-shirt Indépendance" data-price="25000" data-image="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">Ajouter au panier</button>
+                    </div>
+                </div>
+                
+                <!-- Produit 2 - Formation -->
+                <div class="product-card" data-category="digital">
+                    <div class="digital-badge">Téléchargement</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1542621334-a254cf47733d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Formation Design Web" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Formation Design Web</h3>
+                        <span class="product-category">Produits Digitaux</span>
+                        <div class="product-price">
+                            <span class="current-price">150 000 GNF</span>
+                        </div>
+                        <button class="add-to-cart" data-id="2" data-name="Formation Design Web" data-price="150000" data-image="https://images.unsplash.com/photo-1542621334-a254cf47733d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" data-digital="true">Ajouter au panier</button>
+                    </div>
+                </div>
+                
+                <!-- Produit 3 - Pack Branding -->
+                <div class="product-card" data-category="pack">
+                    <div class="product-badge">Populaire</div>
+                    <div class="digital-badge">Téléchargement</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pack Branding Complet" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Pack Branding Complet</h3>
+                        <span class="product-category">Packs Professionnels</span>
+                        <div class="product-price">
+                            <span class="current-price">500 000 GNF</span>
+                            <span class="original-price">750 000 GNF</span>
+                        </div>
+                        <button class="add-to-cart" data-id="3" data-name="Pack Branding Complet" data-price="500000" data-image="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" data-digital="true">Ajouter au panier</button>
+                    </div>
+                </div>
+                
+                <!-- Produit 4 - eBook -->
+                <div class="product-card" data-category="digital">
+                    <div class="digital-badge">Téléchargement</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="eBook Marketing Digital" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">eBook Marketing Digital</h3>
+                        <span class="product-category">Produits Digitaux</span>
+                        <div class="product-price">
+                            <span class="current-price">75 000 GNF</span>
+                        </div>
+                        <button class="add-to-cart" data-id="4" data-name="eBook Marketing Digital" data-price="75000" data-image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" data-digital="true">Ajouter au panier</button>
+                    </div>
+                </div>
+                
+                <!-- Produit 5 - Service Création Site -->
+                <div class="product-card" data-category="service">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Service Création Site Web" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Création Site Web</h3>
+                        <span class="product-category">Services Professionnels</span>
+                        <div class="product-price">
+                            <span class="current-price">À partir de 2 500 000 GNF</span>
+                        </div>
+                        <button class="add-to-cart" data-id="5" data-name="Création Site Web" data-price="2500000" data-image="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">Demander un devis</button>
+                    </div>
+                </div>
+                
+                <!-- Produit 6 - Coaching -->
+                <div class="product-card" data-category="service">
+                    <div class="product-badge">Nouveau</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Coaching Personnel" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Coaching Branding</h3>
+                        <span class="product-category">Services Professionnels</span>
+                        <div class="product-price">
+                            <span class="current-price">À partir de 1 000 000 GNF</span>
+                        </div>
+                        <button class="add-to-cart" data-id="6" data-name="Coaching Branding" data-price="1000000" data-image="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">Demander un devis</button>
+                    </div>
+                </div>
+                
+                <!-- Produit 7 - Template -->
+                <div class="product-card" data-category="digital">
+                    <div class="digital-badge">Téléchargement</div>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Template PowerPoint Pro" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Template PowerPoint Pro</h3>
+                        <span class="product-category">Produits Digitaux</span>
+                        <div class="product-price">
+                            <span class="current-price">120 000 GNF</span>
+                        </div>
+                        <button class="add-to-cart" data-id="7" data-name="Template PowerPoint Pro" data-price="120000" data-image="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" data-digital="true">Ajouter au panier</button>
+                    </div>
+                </div>
+                
+                <!-- Produit 8 - T-shirt -->
+                <div class="product-card" data-category="tshirt">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="T-shirt Future Tech" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">T-shirt "Future Tech"</h3>
+                        <span class="product-category">Collection T-shirts</span>
+                        <div class="product-price">
+                            <span class="current-price">30 000 GNF</span>
+                        </div>
+                        <button class="add-to-cart" data-id="8" data-name="T-shirt Future Tech" data-price="30000" data-image="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Notre Marque</h2>
+            
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="À propos de Popy Tech">
+                </div>
+                
+                <div class="about-content">
+                    <h2>L'univers Popy Tech</h2>
+                    <p>Popy Tech est né de la passion pour la technologie, le design et l'entrepreneuriat. Notre mission est de fournir des produits et services de qualité qui inspirent et équipent la nouvelle génération de créateurs digitaux.</p>
+                    <p>Que vous soyez un entrepreneur en herbe, un designer confirmé ou simplement un passionné de tech, nos produits sont conçus pour vous accompagner dans votre parcours.</p>
+                    <p>Notre équipe de professionnels travaille sans relâche pour créer des solutions innovantes qui répondent aux besoins du marché actuel.</p>
+                    <a href="#products" class="cta-button">Découvrir nos produits</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Conseils & Actualités</h2>
+            
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Conseils pour votre branding" class="blog-image">
+                    <div class="blog-content">
+                        <span class="blog-date">15 Juin 2023</span>
+                        <h3 class="blog-title">5 Conseils pour un branding efficace</h3>
+                        <p class="blog-excerpt">Découvrez comment créer une identité de marque forte qui attire et fidélise vos clients...</p>
+                        <a href="#" class="read-more">Lire plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Article 2 -->
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Tendances design 2023" class="blog-image">
+                    <div class="blog-content">
+                        <span class="blog-date">1 Juin 2023</span>
+                        <h3 class="blog-title">Les tendances design à suivre en 2023</h3>
+                        <p class="blog-excerpt">Explorez les tendances graphiques qui dominent cette année et comment les intégrer dans vos projets...</p>
+                        <a href="#" class="read-more">Lire plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Article 3 -->
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Vendre en ligne" class="blog-image">
+                    <div class="blog-content">
+                        <span class="blog-date">20 Mai 2023</span>
+                        <h3 class="blog-title">Comment vendre ses produits digitaux avec succès</h3>
+                        <p class="blog-excerpt">Les stratégies éprouvées pour commercialiser vos formations, eBooks et autres produits en ligne...</p>
+                        <a href="#" class="read-more">Lire plus <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact & Support</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:contact@popyshop.com">contact@popyshop.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/224000000000">+224 000 000 000</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telegram</h4>
+                            <a href="https://t.me/popytech">@popytech</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Heures d'ouverture</h4>
+                            <p>Lundi - Vendredi: 9h - 18h</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Votre nom</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Votre email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Votre message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Popy<span>Tech</span></a>
+                    <p>Votre boutique complète pour produits digitaux et physiques. T-shirts, formations, eBooks, services professionnels et packs branding.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#products">Produits</a></li>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="#products" data-filter="digital">Produits digitaux</a></li>
+                        <li><a href="#products" data-filter="tshirt">T-shirts</a></li>
+                        <li><a href="#products" data-filter="service">Services</a></li>
+                        <li><a href="#products" data-filter="pack">Packs branding</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Abonnez-vous pour recevoir nos offres spéciales et conseils exclusifs.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Popy Tech. Tous droits réservés. | Conçu avec passion en Guinée</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Votre Panier</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <!-- Les articles du panier seront ajoutés ici dynamiquement -->
+            <p style="text-align: center; padding: 40px 0;">Votre panier est vide</p>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">0 GNF</span>
+            </div>
+            <button class="checkout-btn">Passer la commande</button>
+        </div>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Cart Functionality
+        const cartButton = document.getElementById('cartButton');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const closeCart = document.getElementById('closeCart');
+        const overlay = document.getElementById('overlay');
+        
+        cartButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartSidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        overlay.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        // Product Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Filter from footer links
+        document.querySelectorAll('.footer-links a[data-filter]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const filter = link.getAttribute('data-filter');
+                
+                // Update active filter button
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                document.querySelector(`.filter-btn[data-filter="${filter}"]`).classList.add('active');
+                
+                // Filter products
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Scroll to products section
+                document.getElementById('products').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Shopping Cart Logic
+        let cart = [];
+        const cartItemsContainer = document.getElementById('cartItems');
+        const cartTotalElement = document.getElementById('cartTotal');
+        const cartCount = document.querySelector('.cart-count');
+        
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                const name = button.getAttribute('data-name');
+                const price = parseInt(button.getAttribute('data-price'));
+                const image = button.getAttribute('data-image');
+                const isDigital = button.hasAttribute('data-digital');
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id,
+                        name,
+                        price,
+                        image,
+                        quantity: 1,
+                        isDigital
+                    });
+                }
+                
+                updateCart();
+                
+                // Show cart sidebar
+                cartSidebar.classList.add('active');
+                overlay.classList.add('active');
+                
+                // Animation feedback
+                button.textContent = 'Ajouté !';
+                setTimeout(() => {
+                    button.textContent = isDigital ? 'Télécharger' : 'Ajouter au panier';
+                }, 1000);
+            });
+        });
+        
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; padding: 40px 0;">Votre panier est vide</p>';
+            } else {
+                cartItemsContainer.innerHTML = '';
+                
+                cart.forEach(item => {
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.className = 'cart-item';
+                    cartItemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-title">${item.name}</h4>
+                            <span class="cart-item-price">${item.price.toLocaleString()} GNF</span>
+                            <div class="cart-item-actions">
+                                <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                                <span class="cart-item-quantity">${item.quantity}</span>
+                                <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                                <span class="remove-item" data-id="${item.id}"><i class="fas fa-trash"></i></span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    cartItemsContainer.appendChild(cartItemElement);
+                });
+                
+                // Add event listeners to new buttons
+                document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.getAttribute('data-id');
+                        const item = cart.find(item => item.id === id);
+                        
+                        if (item.quantity > 1) {
+                            item.quantity -= 1;
+                        } else {
+                            cart = cart.filter(item => item.id !== id);
+                        }
+                        
+                        updateCart();
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.getAttribute('data-id');
+                        const item = cart.find(item => item.id === id);
+                        item.quantity += 1;
+                        updateCart();
+                    });
+                });
+                
+                document.querySelectorAll('.remove-item').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.getAttribute('data-id');
+                        cart = cart.filter(item => item.id !== id);
+                        updateCart();
+                    });
+                });
+            }
+            
+            // Update cart total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotalElement.textContent = `${total.toLocaleString()} GNF`;
+        }
+        
+        // Checkout button
+        document.querySelector('.checkout-btn').addEventListener('click', () => {
+            if (cart.length > 0) {
+                // Check if there are digital products
+                const digitalProducts = cart.filter(item => item.isDigital);
+                
+                if (digitalProducts.length > 0) {
+                    // Process digital products first
+                    alert('Merci pour votre achat ! Vos produits digitaux seront disponibles au téléchargement après paiement.');
+                    
+                    // Here you would typically redirect to payment gateway
+                    // For demo, we'll just show a success message
+                    setTimeout(() => {
+                        alert('Paiement réussi ! Vous pouvez maintenant télécharger vos produits digitaux.');
+                        
+                        // Empty the cart
+                        cart = [];
+                        updateCart();
+                        cartSidebar.classList.remove('active');
+                        overlay.classList.remove('active');
+                    }, 1000);
+                } else {
+                    // Physical products only
+                    alert('Commande passée avec succès! Nous vous contacterons pour la livraison.');
+                    cart = [];
+                    updateCart();
+                    cartSidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            } else {
+                alert('Votre panier est vide!');
+            }
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+            this.reset();
+        });
+        
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre inscription à notre newsletter !');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('data-filter')) return; // Skip filter links
+                
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

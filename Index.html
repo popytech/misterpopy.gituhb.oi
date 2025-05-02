@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mister Popy - Expert en Marketing Digital & Développement Web</title>
+    <meta name="description" content="Découvrez mes services de coaching, formation, création de sites web et marketing digital. Approche Natural Marketing pour des résultats authentiques.">
+    
+    <!-- Préchargements optimisés -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- Polices modernes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ================ Variables Design Premium ================ */
+:root {
+    /* Couleurs */
+    --color-primary: #4361ee;
+    --color-primary-dark: #3a0ca3;
+    --color-secondary: #3f37c9;
+    --color-accent: #4cc9f0;
+    --color-dark: #1a1a2e;
+    --color-light: #f8f9fa;
+    --color-gray: #6c757d;
+    
+    /* Dégradés */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    --gradient-accent: linear-gradient(135deg, var(--color-accent), #4895ef);
+    
+    /* Ombres */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+    
+    /* Typographie */
+    --font-base: 'Montserrat', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    
+    /* Transitions */
+    --transition-fast: all 0.2s ease;
+    --transition-normal: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+    
+    /* Bordures */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 50px;
+}
+
+/* ================ Base ================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-base);
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ================ Header Premium ================ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+}
+
+.header.scrolled {
+    padding: 0.75rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.logo-mark {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+}
+
+.logo-neon {
+    color: var(--color-primary);
+}
+
+/* Navigation Premium */
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+    color: var(--color-dark);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: var(--transition-fast);
+    display: block;
+}
+
+.nav-link::before {
+    content: attr(data-hover);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    color: var(--color-primary);
+    overflow: hidden;
+    transition: var(--transition-normal);
+    height: 0;
+}
+
+.nav-link:hover::before {
+    height: 100%;
+    top: 0;
+}
+
+.nav-link span {
+    display: block;
+    transition: var(--transition-normal);
+}
+
+.nav-link:hover span {
+    transform: translateY(-100%);
+}
+
+.nav-link.active {
+    color: var(--color-primary);
+}
+
+/* Menu mobile Premium */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.menu-line {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background: var(--color-dark);
+    transition: var(--transition-normal);
+}
+
+.menu-toggle.active .menu-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .menu-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .menu-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.nav-decoration {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    pointer-events: none;
+}
+
+.nav-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+}
+
+.nav-line {
+    width: 1px;
+    height: 2rem;
+    background: var(--gradient-primary);
+}
+
+/* ================ Hero Section ================ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 0;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%);
+    z-index: -1;
+}
+
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--color-gray);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-normal);
+    cursor: pointer;
+    border: 2px solid transparent;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-contact {
+    background: var(--color-dark);
+    color: white;
+}
+
+.btn-contact:hover {
+    background: var(--color-primary);
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin:auto;
+}
+
+.glow-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(76, 201, 240, 0.1) 0%, transparent 70%);
+    border-radius: var(--radius-lg);
+    z-index: -1;
+    animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+.hero-image {
+    margin: 0 auto;
+    max-width: 300px;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.image-badge {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    background: var(--color-lighter);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 50px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    align-items: baseline;
+    gap: var(--space-xs);
+    font-weight: 600;
+}
+
+.image-badge i {
+    color: var(--color-primary);
+}
+
+.hero-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-xl);
+    color: var(--color-gray);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+
+/* Expertise Grid */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .expertise-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.expertise-card {
+    background: var(--color-lighter);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.expertise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--space-md);
+    background: rgba(67, 97, 238, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+/* ================ Sections Combinées ================ */
+.combined-sections {
+    padding: 5rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    margin: 1rem auto 0;
+    border-radius: var(--radius-full);
+}
+
+.text-neon {
+    color: var(--color-accent);
+}
+
+/* Grille pour les sections approche et services */
+.approach-grid,
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Cartes communes */
+.approach-card,
+.service-card {
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    text-align: center;
+}
+
+.approach-card:hover,
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.approach-icon,
+.service-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%);
+    border-radius: 50%;
+    transition: var(--transition-normal);
+}
+
+.service-icon .icon-bg {
+    border-radius: var(--radius-md);
+}
+
+.approach-icon i,
+.service-icon i {
+    font-size: 2rem;
+    color: var(--color-primary);
+    position: relative;
+    z-index: 1;
+    transition: var(--transition-normal);
+}
+
+.service-card:hover .service-icon i {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    margin-top: 1rem;
+}
+
+.btn-link:hover {
+    color: var(--color-primary-dark);
+    gap: 0.75rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* ================ CTA Section ================ */
+.cta-section {
+    padding: 5rem 0;
+    background: var(--gradient-primary);
+    color: white;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cta-section .btn-primary {
+    background: white;
+    color: var(--color-primary);
+}
+
+.cta-section .btn-secondary {
+    border-color: white;
+    color: white;
+}
+
+.cta-section .btn-secondary:hover {
+    background: white;
+    color: var(--color-primary);
+}
+
+/* ================ Footer Minimaliste ================ */
+.footer-minimal {
+    padding: 3rem 0;
+    background-color: var(--color-dark);
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-links a {
+    color: white;
+    font-size: 1.25rem;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--color-accent);
+    transform: translateY(-3px);
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-copyright p {
+    opacity: 0.7;
+    font-size: 0.875rem;
+}
+
+/* ================ Responsive Design ================ */
+@media (max-width: 992px) {
+    .hero {
+        padding-top: 8rem;
+        text-align: center;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 3rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .combined-sections {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: white;
+        box-shadow: var(--shadow-lg);
+        flex-direction: column;
+        justify-content: center;
+        transition: var(--transition-normal);
+        z-index: 1000;
+    }
+    
+    .navbar.active {
+        left: 0;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem;
+    }
+    
+    .hero-image {
+        margin-top: 3rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Grille 2 colonnes pour mobile */
+    .approach-grid,
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    /* Grille 1 colonne pour très petits écrans */
+    .approach-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        gap: 1rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Premium -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Mister Popy">
+                <div class="logo-mark">
+                    <svg viewBox="0 0 100 100">
+                        <path d="M50,0 L100,50 L50,100 L0,50 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <span class="logo-text">
+                    <span class="logo-neon">Mister</span>Popy
+                </span>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+            
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active" data-hover="Accueil">
+                            <span>Accueil</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Apropos.html" class="nav-link" data-hover="À propos">
+                            <span>À propos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link" data-hover="Services">
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="folio.html" class="nav-link" data-hover="Témoignages">
+                            <span>Témoignages</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link" data-hover="Blog">
+                            <span>Blog</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="btn btn-contact">
+                            <span>Contact</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="nav-decoration">
+                    <div class="nav-dot"></div>
+                    <div class="nav-line"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section Premium -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">
+                        <span class="text-gradient">Transformez</span>
+                    </span>
+                    <span class="title-line">votre présence digitale</span>
+                </h1>
+                
+                <p class="hero-subtitle">Approche Natural Marketing pour des résultats authentiques et durables</p>
+                
+                <div class="hero-buttons">
+                    <a href="ServicesDeath.html" class="btn btn-primary">
+                        <span>Découvrir mes services</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                
+                    <a href="https://wa.me/message/LR32H3RNK3IIM1" class="btn btn-secondary">
+                        <span>Contact rapide</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="profil.png" alt="Mister Popy" loading="lazy">
+                    <div class="image-badge">
+                        <i class="fas fa-award"></i>
+                        <span>Expert Certifié</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sections Combinées -->
+    <section class="combined-sections">
+        <div class="container">
+            <!-- Section Approche -->
+            <div class="approach-section">
+                <h2 class="section-title">L'approche <span class="text-neon">Natural Marketing</span></h2>
+                <div class="approach-grid">
+                    <div class="approach-card">
+                        <div class="approach-icon">
+                            <div class="icon-bg"></div>
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Authenticité</h3>
+                        <p>Stratégies basées sur votre identité réelle, sans artifices.</p>
+                    </div>
+                    <div class="approach-card">
+                        <div class="approach-icon">
+                            <div class="icon-bg"></div>
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Croissance organique</h3>
+                        <p>Développement durable de votre audience et chiffre d'affaires.</p>
+                    </div>
+                    <div class="approach-card">
+                        <div class="approach-icon">
+                            <div class="icon-bg"></div>
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Technologie adaptée</h3>
+                        <p>Solutions digitales sur mesure pour votre business.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Services -->
+            <div class="services-section" id="services">
+                <h2 class="section-title">Mes <span class="text-gradient">Services</span></h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <div class="icon-bg"></div>
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>Coaching</h3>
+                        <p>Accompagnement personnalisé pour entrepreneurs et créateurs.</p>
+                        <a href="services.html#coaching" class="btn-link">
+                            <span>En savoir plus</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <div class="icon-bg"></div>
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Développement Web</h3>
+                        <p>Sites web performants, esthétiques et optimisés SEO.</p>
+                        <a href="services.html#webdev" class="btn-link">
+                            <span>En savoir plus</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <div class="icon-bg"></div>
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Développement Web</h3>
+                        <p>Sites web performants, esthétiques et optimisés SEO.</p>
+                        <a href="services.html#webdev" class="btn-link">
+                            <span>En savoir plus</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <div class="icon-bg"></div>
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>Marketing Digital</h3>
+                        <p>Stratégies digitales pour augmenter votre visibilité.</p>
+                        <a href="services.html#marketing" class="btn-link">
+                            <span>En savoir plus</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="ServicesDeath.html" class="btn btn-primary btn-lg">
+                        <span>Voir tous les services</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA Premium -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à transformer votre présence digitale ?</h2>
+            <p>Contactez-moi dès aujourd'hui pour discuter de votre projet.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary btn-lg">
+                    <span>Me contacter</span>
+                </a>
+                <a href="register.html" class="btn btn-secondary btn-lg">
+                    <span>S'inscrire à une formation</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page Minimaliste -->
+    <footer class="footer-minimal">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-neon">Mister</span>Popy
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:contact@misterpopy.com"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+224612960453"><i class="fas fa-phone"></i></a>
+                    <a href="Wa.me"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; <span id="current-year">2025</span> POPY TECH. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Premium -->
+    <script src="js/main.js" type="module"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Menu mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar');
+    
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navbar.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+    });
+    
+    // Fermer le menu au clic sur un lien
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                menuToggle.classList.remove('active');
+                navbar.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    });
+    
+    // Effet de scroll sur le header
+    const header = document.querySelector('.header');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Lazy loading des images
+    const lazyImages = document.querySelectorAll('.lazy-img');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '200px'
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback pour les vieux navigateurs
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    }
+    
+    // Animation au scroll
+    const approachCards = document.querySelectorAll('.approach-card');
+    
+    const animateCards = function() {
+        const windowHeight = window.innerHeight;
+        const triggerPoint = windowHeight * 0.8;
+        
+        approachCards.forEach(card => {
+            const cardPosition = card.getBoundingClientRect().top;
+            
+            if (cardPosition < triggerPoint) {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', animateCards);
+    animateCards(); // Initialisation
+    
+    // Mise à jour de l'année dans le footer
+    const yearElement = document.getElementById('current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+});
+    </script>
+</body>
+</html>

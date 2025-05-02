@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | Mister Popy - Expert en Transformation Digitale</title>
+    <meta name="description" content="Découvrez Mister Popy, expert en marketing digital et développement web. Mon parcours, mes valeurs et ma méthodologie pour booster votre business en ligne.">
+    
+    <!-- Préchargement des ressources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap" as="style">
+    <link rel="preload" href="css/about.css" as="style">
+    
+    <!-- Typographie -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700&display=swap">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <style>
+        /* ================ Variables ================ */
+:root {
+    /* Couleurs */
+    --color-primary: #4361ee;
+    --color-primary-dark: #3a0ca3;
+    --color-secondary: #f72585;
+    --color-dark: #1b263b;
+    --color-darker: #0f172a;
+    --color-light: #f8f9fa;
+    --color-lighter: #ffffff;
+    --color-gray: #94a3b8;
+    
+    /* Dégradés */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    --gradient-accent: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    
+    /* Typographie */
+    --font-heading: 'Bebas Neue', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+    
+    /* Espacements */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    
+    /* Effets */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================ Base ================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: var(--color-lighter);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* ================ Typographie ================ */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 6vw, 3rem);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+.text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ================ Composants ================ */
+/* Header */
+.about-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--space-sm) 0;
+    background: var(--color-lighter);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.about-header.scrolled {
+    box-shadow: var(--shadow-md);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-dark);
+}
+
+.logo-highlight {
+    color: var(--color-primary);
+}
+
+.logo svg {
+    width: 36px;
+    height: 36px;
+    color: var(--color-primary);
+}
+
+/* Navigation */
+.main-nav ul {
+    display: flex;
+    gap: var(--space-md);
+    list-style: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--color-dark);
+    font-weight: 500;
+    transition: var(--transition);
+    padding: var(--space-xs) 0;
+    position: relative;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: var(--transition);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: var(--gradient-primary);
+    color: var(--color-lighter);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Hero Section */
+.about-hero {
+    padding: calc(80px + var(--space-xl)) 0 var(--space-xl);
+    position: relative;
+}
+
+.hero-content {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.hero-content h1 {
+    margin-bottom: var(--space-md);
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--color-gray);
+    max-width: 700px;
+    margin: 0 auto var(--space-xl);
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+}
+
+.hero-image {
+    margin: 0 auto;
+    max-width: 500px;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.image-badge {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    background: var(--color-lighter);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 50px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-weight: 600;
+}
+
+.image-badge i {
+    color: var(--color-primary);
+}
+
+.hero-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-xl);
+    color: var(--color-gray);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Sections */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.section-header.center {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-label {
+    display: inline-block;
+    background: rgba(67, 97, 238, 0.1);
+    color: var(--color-primary);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-gray);
+    margin-top: var(--space-md);
+}
+
+.light-bg {
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.03) 0%, rgba(58, 12, 163, 0.03) 100%);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: var(--color-light);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-xl);
+    position: relative;
+}
+
+.timeline-date {
+    width: 120px;
+    text-align: right;
+    padding-right: var(--space-xl);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.timeline-content {
+    width: calc(50% - 60px);
+    padding-left: var(--space-xl);
+    text-align: left;
+}
+
+.timeline-content h3 {
+    margin-bottom: var(--space-sm);
+}
+
+/* Expertise Grid */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .expertise-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.expertise-card {
+    background: var(--color-lighter);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.expertise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--space-md);
+    background: rgba(67, 97, 238, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+/* Valeurs */
+.values-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .values-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.values-image img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.value-item {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.value-number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.value-text h3 {
+    margin-bottom: var(--space-xs);
+}
+
+/* Témoignages */
+.testimonials-slider {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .testimonials-slider {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.testimonial-card {
+    background: var(--color-lighter);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.testimonial-content {
+    margin-bottom: var(--space-md);
+    font-style: italic;
+    position: relative;
+}
+
+.testimonial-content::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-size: 3rem;
+    color: var(--color-primary);
+    opacity: 0.2;
+    font-family: serif;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonial-author h4 {
+    margin-bottom: var(--space-xs);
+}
+
+.testimonial-author span {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+}
+
+/* CTA */
+.about-cta {
+    padding: var(--space-xl) 0;
+    background: var(--gradient-primary);
+    color: var(--color-lighter);
+    text-align: center;
+}
+
+.about-cta h2 {
+    margin-bottom: var(--space-md);
+}
+
+.about-cta p {
+    margin-bottom: var(--space-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    color: #ffffff;
+}
+
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-normal);
+    cursor: pointer;
+    border: 2px solid transparent;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-contact {
+    background: var(--color-dark);
+    color: white;
+}
+
+.btn-contact:hover {
+    background: var(--color-primary);
+}
+
+
+
+/* Footer */
+.about-footer {
+    background: var(--color-darker);
+    color: var(--color-lighter);
+    padding: var(--space-xl) 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.footer-brand .logo {
+    color: var(--color-lighter);
+    margin-bottom: var(--space-sm);
+}
+
+.footer-brand p {
+    margin-bottom: var(--space-md);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.social-links a {
+    color: var(--color-lighter);
+    font-size: 1.25rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    color: var(--color-primary);
+}
+
+.footer-links h3,
+.footer-contact h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a,
+.footer-contact a {
+    color: var(--color-gray);
+    text-decoration: none;
+    transition: var(--transition);
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+    color: var(--color-lighter);
+}
+
+.footer-bottom {
+    padding: var(--space-md) 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+
+.legal-links {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-top: var(--space-sm);
+}
+
+.legal-links a {
+    color: var(--color-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* ================ Responsive ================ */
+@media (max-width: 767px) {
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--color-lighter);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        padding: 80px var(--space-md) var(--space-md);
+        transition: var(--transition);
+    }
+    
+    .main-nav.active {
+        right: 0;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+    }
+    
+    .mobile-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        z-index: 1001;
+    }
+    
+    .mobile-toggle .line {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--color-dark);
+        transition: var(--transition);
+    }
+    
+    .mobile-toggle.active .line:first-child {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-toggle.active .line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-toggle.active .line:last-child {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .timeline-date,
+    .timeline-content {
+        width: 100%;
+        text-align: left;
+        padding: 0;
+    }
+    
+    .timeline-date {
+        margin-bottom: var(--space-sm);
+    }
+    
+    .timeline-content {
+        padding-left: 50px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+/* ================ Animations ================ */
+[data-aos] {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+[data-aos="fade-up"].aos-animate {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+[data-aos="fade-left"] {
+    transform: translateX(20px);
+    opacity: 0;
+}
+
+[data-aos="fade-left"].aos-animate {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* ================ Accessibilité ================ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="about-header">
+        <div class="container">
+            <a href="/" class="logo" aria-label="Mister Popy">
+                <svg width="36" height="36" viewBox="0 0 100 100" aria-hidden="true">
+                    <path d="M50 0L100 50L50 100L0 50Z" fill="currentColor"/>
+                </svg>
+                <span>Mister<span class="logo-highlight">Popy</span></span>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="Index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html" class="active">À Propos</a></li>
+                    <li><a href="folio.html">Réalisations</a></li>
+                    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-toggle" aria-label="Menu mobile" aria-expanded="false">
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    <span class="text-gradient">Mister Popy</span><br>
+                    Votre Expert en Transformation Digitale
+                </h1>
+                <p class="subtitle">Depuis 2019, j'accompagne les entrepreneurs à développer une présence en ligne impactante</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="stat-label">Clients Satisfaits</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="12">0</div>
+                        <div class="stat-label">Ans d'Expérience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="97">0</div>
+                        <div class="stat-label">% de Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="profil.png" alt="Mister Popy" loading="lazy">
+                    <div class="image-badge">
+                        <i class="fas fa-award"></i>
+                        <span>Expert Certifié</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-scroll">
+            <span>Découvrez mon parcours</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Section Histoire -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Mon Parcours</span>
+                <h2>De Passion à <span class="text-gradient">Profession</span></h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2018</div>
+                    <div class="timeline-content">
+                        <h3>Débuts dans le Digital</h3>
+                        <p>Création de mes premiers sites web et lancement de projets entrepreneuriaux en ligne après une formation autodidacte intensive.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2019</div>
+                    <div class="timeline-content">
+                        <h3>Spécialisation en Marketing</h3>
+                        <p>Obtention de certifications Google Ads et Facebook Blueprint, début de l'accompagnement de clients sur leur stratégie digitale.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2020</div>
+                    <div class="timeline-content">
+                        <h3>Lancement de Mister Popy</h3>
+                        <p>Officialisation de mon activité d'expert indépendant avec une approche holistique combinant technique et stratégie.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3>Expansion Internationale</h3>
+                        <p>Accompagnement de clients dans 5 pays différents et développement d'une méthode de coaching unique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Expertise -->
+    <section class="expertise-section light-bg">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Mes Atouts</span>
+                <h2>Mon <span class="text-gradient">Approche</span> Unique</h2>
+                <p class="section-subtitle">La combinaison parfaite entre expertise technique et vision stratégique</p>
+            </div>
+            
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chess-knight"></i>
+                    </div>
+                    <h3>Stratégie Digitale</h3>
+                    <p>Développement de plans d'action sur mesure alignés avec vos objectifs business et votre audience.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Développement Web</h3>
+                    <p>Création de sites performants, ergonomiques et optimisés pour la conversion et le référencement.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analyse Data</h3>
+                    <p>Mesure précise des performances et optimisation basée sur les données et les comportements utilisateurs.</p>
+                </div>
+                
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Transformation Digitale</h3>
+                    <p>Accompagnement complet pour intégrer le digital au cœur de votre activité et processus métiers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Valeurs -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Mes Valeurs</span>
+                <h2>Ce Qui Me <span class="text-gradient">Distingue</span></h2>
+            </div>
+            
+            <div class="values-content">
+                <div class="values-image">
+                    <img src="assets/mister-popy-working.jpg" alt="Mister Popy au travail" loading="lazy">
+                </div>
+                
+                <div class="values-list">
+                    <div class="value-item">
+                        <div class="value-number">01</div>
+                        <div class="value-text">
+                            <h3>Résultats Concrets</h3>
+                            <p>Je m'engage sur des objectifs mesurables et priorise toujours l'impact business réel.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-number">02</div>
+                        <div class="value-text">
+                            <h3>Transparence Totale</h3>
+                            <p>Pas de jargon inutile, des explications claires et une visibilité complète sur les méthodes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-number">03</div>
+                        <div class="value-text">
+                            <h3>Adaptabilité</h3>
+                            <p>Des solutions flexibles qui évoluent avec votre business et les changements du marché.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-number">04</div>
+                        <div class="value-text">
+                            <h3>Passion Enseignante</h3>
+                            <p>Je vous forme pour que vous deveniez autonome, pas dépendant de mes services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section class="testimonials-section light-bg">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Ils me font confiance</span>
+                <h2>Témoignages <span class="text-gradient">Clients</span></h2>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Mister Popy a complètement transformé notre présence en ligne. En 6 mois, notre trafic a augmenté de 300% et nos ventes en ligne de 150%."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/client-marie.jpg" alt="Marie D." loading="lazy">
+                        <div>
+                            <h4>Marie Dubois</h4>
+                            <span>Fondatrice de BelleNature</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Le coaching avec Mister Popy m'a permis de structurer mon activité et de multiplier mon chiffre d'affaires par 5 en un an. Un accompagnement précieux !"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/client-pierre.jpg" alt="Pierre L." loading="lazy">
+                        <div>
+                            <h4>Pierre Lambert</h4>
+                            <span>Consultant Indépendant</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Une expertise rare alliant vision stratégique et maîtrise technique. Notre nouveau site a généré 40% de leads en plus dès le premier mois."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/client-sophie.jpg" alt="Sophie T." loading="lazy">
+                        <div>
+                            <h4>Sophie Tremblay</h4>
+                            <span>Directrice Marketing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="about-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à transformer votre présence digitale ?</h2>
+                <p>Premier échange offert pour discuter de vos besoins et objectifs.</p>
+                
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Prendre RDV</span>
+                    </a>
+                    <a href="wa.me/+224612960453" class="btn btn-secondary">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Appeler maintenant</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="about-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true">
+                            <path d="M50 0L100 50L50 100L0 50Z" fill="currentColor"/>
+                        </svg>
+                        <span>Mister<span class="logo-highlight">Popy</span></span>
+                    </a>
+                    <p>Expert en transformation digitale depuis 2018</p>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="/">Accueil</a></li>
+                        <li><a href="ServicesDeath.html">Services</a></li>
+                        <li><a href="Apropos.html">À Propos</a></li>
+                        <li><a href="folio.html">Réalisations</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <address>
+                        <a href="mailto:contact@misterpopy.com">contact@misterpopy.com</a>
+                        <a href="tel:+33123456789">+224 612 96 04 53</a>
+                        <p>Guinée,Conakry</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mister Popy. Tous droits réservés.</p>
+                <div class="legal-links">
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Confidentialité</a>
+                    <a href="#">CGV</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialisation des animations au scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animation des statistiques
+            const animateCounters = () => {
+                const counters = document.querySelectorAll('.stat-number');
+                const speed = 200;
+
+                counters.forEach(counter => {
+                    const target = +counter.dataset.count;
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        const increment = Math.ceil(target / speed);
+
+                        if (count < target) {
+                            counter.innerText = count + increment;
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            };
+
+            // Lance l'animation quand la section est visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.querySelector('.hero-stats');
+            if (statsSection) observer.observe(statsSection);
+
+            // Initialisation de AOS (Animate On Scroll)
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true
+                });
+            }
+
+            // Menu mobile
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                mainNav.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+
+            // Fermeture du menu au clic sur un lien
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                });
+            });
+
+            // Effet de scroll sur l'en-tête
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('.about-header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
